@@ -1,0 +1,15 @@
+backups/
+qa-screenshots/
+share-package/
+*.zip
+docker-feature-enable.log
+font-options.html
+font-options.css
+assets/Brand reference.jpeg
+assets/Catalogue.pdf
+assets/t-work-hero-banner.png
+assets/t-work-clean-hero-with-logo.png
+assets/hero-products.svg
+assets/category-*.svg
+assets/products/catalogue/
+assets/products/*.svg
