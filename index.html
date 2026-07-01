@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=mobile-4" />
   </head>
   <body id="top">
     <header class="site-header">
@@ -18,6 +18,12 @@
             <img class="brand-logo" src="assets/t-work-logo.svg" alt="T-WORK" />
             <span class="brand-subtitle">בגדי עבודה ופתרונות לעסקים</span>
           </a>
+
+          <button class="mobile-menu-toggle" type="button" aria-label="פתיחת תפריט ניווט" aria-controls="primary-nav" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
 
           <form class="search-form" action="#catalogue" role="search" data-site-search>
             <label class="sr-only" for="site-search">חיפוש מוצרים</label>
@@ -32,7 +38,7 @@
           </form>
 
           <div class="header-actions" aria-label="קישורי משתמש ועגלה">
-            <a class="utility-link account-link" href="#phone-capture">
+            <a class="utility-link account-link" href="#phone-capture" aria-label="יצירת קשר וקבלת הצעת מחיר">
               <svg class="utility-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20 21a8 8 0 0 0-16 0" />
                 <circle cx="12" cy="7" r="4" />
@@ -61,7 +67,7 @@
         </div>
       </div>
 
-      <nav class="main-nav" aria-label="ניווט ראשי">
+      <nav class="main-nav" id="primary-nav" aria-label="ניווט ראשי">
         <div class="page-shell">
           <ul class="nav-list">
             <li><a class="active" href="#top">עמוד הבית</a></li>
@@ -314,7 +320,7 @@
 
     </main>
     <script src="data/products.js"></script>
-    <script src="homepage-products.js"></script>
-    <script src="site-actions.js"></script>
+    <script src="homepage-products.js?v=mobile-4"></script>
+    <script src="site-actions.js?v=mobile-4"></script>
   </body>
 </html>

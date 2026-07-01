@@ -7,6 +7,9 @@
   const searchInput = document.querySelector("#site-search");
   const searchStatus = document.querySelector("#site-search-status");
   const truckVideo = document.querySelector(".truck-divider-video");
+  const siteHeader = document.querySelector(".site-header");
+  const menuToggle = document.querySelector(".mobile-menu-toggle");
+  const mainNav = document.querySelector(".main-nav");
 
   const buildWhatsAppUrl = (message) => {
     const encodedMessage = encodeURIComponent(message);
@@ -40,6 +43,36 @@
 
     element.scrollIntoView({ block: "start", behavior: "smooth" });
   };
+
+  const setMenuOpen = (isOpen) => {
+    if (!siteHeader || !menuToggle) {
+      return;
+    }
+
+    siteHeader.classList.toggle("is-nav-open", isOpen);
+    mainNav?.classList.toggle("is-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  if (menuToggle && siteHeader) {
+    menuToggle.addEventListener("click", () => {
+      setMenuOpen(!siteHeader.classList.contains("is-nav-open"));
+    });
+  }
+
+  if (mainNav) {
+    mainNav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        setMenuOpen(false);
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+    }
+  });
 
   if (phoneForm && phoneInput) {
     phoneForm.addEventListener("submit", (event) => {

@@ -15,7 +15,7 @@
         <div class="home-product-card-inner">
           <a class="home-product-image-link" href="${product.image}" aria-label="צפייה בתמונה של ${product.name}">
           <span class="home-product-image">
-            <img src="${product.image}" alt="${product.name}" loading="eager" decoding="async" />
+            <img src="${product.image}" alt="${product.name}" loading="lazy" decoding="async" />
           </span>
           </a>
           <span class="home-product-code">${product.code}</span>
