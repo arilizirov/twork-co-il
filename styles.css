@@ -1777,18 +1777,19 @@ input {
 
   .hero,
   .hero-clean {
-    min-height: 0;
+    min-height: clamp(360px, 58svh, 520px);
+    height: clamp(360px, 58svh, 520px);
     overflow: hidden;
     background: #050505;
   }
 
   .hero-background-image {
-    position: relative;
-    inset: auto;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center center;
+    height: 100%;
+    object-fit: cover;
+    object-position: 33% center;
     transform: none;
     filter: contrast(1.03) saturate(1.02);
   }
@@ -1805,7 +1806,7 @@ input {
 
   .mobile-hero-cta {
     display: block;
-    padding: 13px 0 15px;
+    padding: 16px 0 17px;
     background:
       linear-gradient(180deg, #050505 0%, #111111 100%);
     border-bottom: 1px solid #242424;
@@ -1814,6 +1815,15 @@ input {
   .mobile-hero-cta-inner {
     display: grid;
     gap: 10px;
+  }
+
+  .mobile-hero-cta h2 {
+    margin: 0 0 4px;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 850;
+    line-height: 1.16;
+    text-align: center;
   }
 
   .mobile-hero-cta .btn {
