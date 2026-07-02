@@ -3,6 +3,7 @@
   const businessWhatsAppNumber = "";
   const phoneForm = document.querySelector("[data-whatsapp-form]");
   const phoneInput = document.querySelector("#inquiry-phone");
+  const phoneStatus = document.querySelector("[data-phone-status]");
   const searchForm = document.querySelector("[data-site-search]");
   const searchInput = document.querySelector("#site-search");
   const searchStatus = document.querySelector("#site-search-status");
@@ -18,11 +19,39 @@
       return `https://wa.me/${businessWhatsAppNumber}?text=${encodedMessage}`;
     }
 
-    return `https://wa.me/?text=${encodedMessage}`;
+    return "";
   };
 
   const openWhatsApp = (message) => {
-    window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+    const url = buildWhatsAppUrl(message);
+
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    return Boolean(url);
+  };
+
+  const setPhoneStatus = (message, type = "info") => {
+    if (!phoneStatus) {
+      return;
+    }
+
+    phoneStatus.textContent = message;
+    phoneStatus.dataset.state = type;
+  };
+
+  const saveLocalLead = (phone) => {
+    try {
+      const leads = JSON.parse(window.localStorage.getItem("tworkLeadRequests") || "[]");
+      leads.push({
+        phone,
+        createdAt: new Date().toISOString()
+      });
+      window.localStorage.setItem("tworkLeadRequests", JSON.stringify(leads.slice(-50)));
+    } catch (error) {
+      // Local storage can be disabled in some browsers. The visible message still explains the next step.
+    }
   };
 
   const normalizeText = (value) =>
@@ -85,7 +114,17 @@
         return;
       }
 
-      openWhatsApp(`שלום T-WORK, אשמח להצעת מחיר לבגדי עבודה ממותגים. מספר הטלפון שלי: ${phone}`);
+      saveLocalLead(phone);
+
+      const sentToWhatsApp = openWhatsApp(`שלום T-WORK, אשמח להצעת מחיר לבגדי עבודה ממותגים. מספר הטלפון שלי: ${phone}`);
+
+      if (sentToWhatsApp) {
+        setPhoneStatus("המספר נשלח בוואטסאפ. נחזור אליכם בהקדם.", "success");
+      } else {
+        setPhoneStatus("המספר נקלט לבדיקה באתר. כדי שפניות יגיעו אליכם בפועל, צריך להוסיף כאן את מספר הוואטסאפ העסקי של T-WORK.", "warning");
+      }
+
+      phoneInput.value = "";
     });
   }
 
@@ -158,6 +197,11 @@
       phoneInput.focus({ preventScroll: true });
     }
 
-    openWhatsApp(`שלום T-WORK, אשמח להצעת מחיר עבור ${productName} (${productCode}).`);
+    const sentToWhatsApp = openWhatsApp(`שלום T-WORK, אשמח להצעת מחיר עבור ${productName} (${productCode}).`);
+
+    if (!sentToWhatsApp) {
+      setPhoneStatus("בחרתם מוצר מהקטלוג. הזינו מספר טלפון ונחזור אליכם אחרי שנחבר מספר וואטסאפ עסקי.", "warning");
+      scrollToElement(document.querySelector("#phone-capture"));
+    }
   });
 })();

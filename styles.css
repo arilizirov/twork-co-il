@@ -790,6 +790,28 @@ input {
   filter: brightness(1.03);
 }
 
+.phone-capture-status {
+  grid-column: 2;
+  min-height: 20px;
+  margin: 10px 0 0;
+  color: #5e5e5e;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.phone-capture-status:empty {
+  display: none;
+}
+
+.phone-capture-status[data-state="success"] {
+  color: #1f7a3d;
+}
+
+.phone-capture-status[data-state="warning"] {
+  color: #8b6100;
+}
+
 .whatsapp-icon {
   display: grid;
   place-items: center;
@@ -1054,14 +1076,17 @@ input {
   place-items: center;
   height: 270px;
   padding: 18px;
+  overflow: hidden;
   background:
     linear-gradient(180deg, #ffffff 0%, #f8f8f7 100%);
   border-bottom: 1px solid #ededed;
 }
 
 .home-product-image img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 
@@ -1668,23 +1693,33 @@ input {
 
   .header-inner {
     width: min(100% - 24px, 620px);
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    gap: 10px;
-    padding-block: 10px;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "menu brand"
+      "search search";
+    gap: 9px 12px;
+    padding-block: 9px 11px;
+    direction: ltr;
+  }
+
+  .brand {
+    justify-self: end;
+    align-items: flex-end;
   }
 
   .brand-logo {
-    width: min(154px, 42vw);
+    width: min(144px, 44vw);
   }
 
   .brand-subtitle {
-    max-width: 170px;
-    font-size: 10.5px;
+    max-width: 188px;
+    font-size: 11px;
+    text-align: right;
   }
 
   .search-form {
-    height: 48px;
-    grid-template-columns: 1fr 50px;
+    height: 46px;
+    grid-template-columns: 1fr 48px;
     border-radius: 6px;
   }
 
@@ -1699,9 +1734,7 @@ input {
   }
 
   .header-actions {
-    width: auto;
-    justify-content: flex-start;
-    min-height: 44px;
+    display: none;
   }
 
   .utility-link {
@@ -1728,6 +1761,7 @@ input {
   }
 
   .mobile-menu-toggle {
+    justify-self: start;
     width: 44px;
     height: 44px;
   }
@@ -1741,30 +1775,33 @@ input {
   .hero-clean,
   .hero-inner,
   .hero-clean .hero-inner {
-    min-height: 462px;
+    min-height: 520px;
   }
 
   .hero-background-image {
-    width: 195%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     object-position: 39% center;
-    transform: translate(24%, 0);
-    filter: brightness(0.8);
+    transform: none;
+    filter: brightness(0.92) contrast(1.03);
   }
 
   .hero-clean::after {
     background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.62)),
-      radial-gradient(ellipse at 52% 38%, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.76) 74%);
+      linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.22) 42%, rgba(0, 0, 0, 0.82) 100%),
+      radial-gradient(ellipse at 50% 30%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.46) 76%);
   }
 
   .hero-clean .hero-inner {
     align-items: flex-end;
-    padding-block: 24px 30px;
+    padding-block: 24px 28px;
   }
 
   .hero-clean .hero-copy {
-    width: min(100%, 338px);
+    width: min(100%, 342px);
     margin-inline: auto;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.72);
   }
 
   .hero-copy h1 {
@@ -1795,41 +1832,85 @@ input {
   }
 
   .benefits-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .benefit-item {
-    justify-content: flex-start;
-    min-height: 92px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 86px;
+    padding: 12px 9px;
+    text-align: center;
+  }
+
+  .benefit-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .benefit-item h2 {
+    font-size: 13px;
+    line-height: 1.22;
+  }
+
+  .benefit-item p {
+    display: none;
   }
 
   .phone-capture {
-    padding: 24px 0;
+    padding: 18px 0;
+  }
+
+  .phone-capture-inner {
+    gap: 14px;
   }
 
   .phone-capture-copy h2 {
-    font-size: 24px;
+    font-size: 21px;
+    line-height: 1.18;
   }
 
   .phone-capture-copy p {
-    font-size: 14px;
+    margin-top: 6px;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  .phone-capture-trust {
+    display: none;
   }
 
   .phone-capture-form {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) 92px;
+    min-height: 54px;
+  }
+
+  .phone-capture-form input {
+    height: 54px;
+    padding: 0 14px;
+    font-size: 14px;
   }
 
   .phone-capture-form button {
-    border-right: 0;
-    border-top: 1px solid #dededb;
+    height: 54px;
+    border-top: 0;
+    border-right: 1px solid #dededb;
+    font-size: 14px;
+  }
+
+  .phone-capture-status {
+    grid-column: 1 / -1;
+    margin: 8px 0 0;
+    font-size: 12.5px;
   }
 
   .truck-divider {
-    height: 170px;
+    height: 132px;
   }
 
   .business-intro {
-    padding: 34px 0;
+    padding: 28px 0;
   }
 
   .business-intro h2,
@@ -1874,17 +1955,15 @@ input {
   }
 
   .home-products-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 14px;
     width: 100%;
     max-width: 100%;
-    overflow-x: auto;
+    overflow-x: visible;
     margin-inline: 0;
-    padding: 2px 2px 14px;
-    scroll-padding-inline: 2px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    padding: 0;
+    scroll-snap-type: none;
   }
 
   .home-products-grid::-webkit-scrollbar {
@@ -1892,17 +1971,24 @@ input {
   }
 
   .home-product-card {
-    flex: 0 0 min(82vw, 304px);
-    scroll-snap-align: start;
+    min-width: 0;
   }
 
   .home-product-card-inner {
-    min-height: 388px;
+    min-height: 0;
   }
 
   .home-product-image {
-    height: 188px;
-    padding: 14px;
+    height: 212px;
+    padding: 16px;
+  }
+
+  .home-product-code {
+    position: static;
+    align-self: flex-start;
+    min-height: 28px;
+    margin: 14px 16px 0;
+    font-size: 13px;
   }
 
   .home-product-category,
@@ -1913,21 +1999,23 @@ input {
   }
 
   .home-product-category {
-    margin-top: 14px;
+    margin-top: 8px;
   }
 
   .home-product-name {
     font-size: 17px;
+    line-height: 1.25;
   }
 
   .home-product-description {
     font-size: 13.5px;
     line-height: 1.42;
+    margin-bottom: 14px;
   }
 
   .home-product-action {
     align-self: stretch;
-    margin: auto 16px 16px;
+    margin: 0 16px 16px;
   }
 }
 

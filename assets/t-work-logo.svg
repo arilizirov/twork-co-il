@@ -1,12 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="104" viewBox="0 0 320 104" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="72" viewBox="0 0 260 72" role="img" aria-labelledby="title desc">
   <title id="title">T-WORK</title>
-  <desc id="desc">Industrial black, yellow, and white T-WORK wordmark.</desc>
-  <rect width="320" height="104" fill="none"/>
-  <g transform="translate(4 6)">
-    <path d="M24 7h88L98 29H69L42 86H11l27-57H10z" fill="#f7bf18"/>
-    <path d="M68 7h44L98 29H68z" fill="#ffd33f" opacity=".65"/>
-    <path d="M86 66h58v20H75z" fill="#f7bf18"/>
-    <text x="116" y="64" fill="#ffffff" font-family="Rubik, Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="-1">WORK</text>
-    <path d="M115 74h167" stroke="#f7bf18" stroke-width="4" stroke-linecap="square" opacity=".9"/>
+  <desc id="desc">T-WORK yellow and white industrial wordmark.</desc>
+  <rect width="260" height="72" fill="none"/>
+  <g transform="translate(6 7)">
+    <path d="M19 3h76L84 23H58L35 59H8l24-36H6z" fill="#f7bf18"/>
+    <path d="M57 3h38L84 23H57z" fill="#ffd34a" opacity=".7"/>
+    <text x="87" y="47" fill="#f4f4f1" font-family="Rubik, Arial, sans-serif" font-size="34" font-weight="900" letter-spacing=".5">WORK</text>
+    <path d="M87 55h107" stroke="#f7bf18" stroke-width="3" stroke-linecap="square" opacity=".85"/>
   </g>
 </svg>
