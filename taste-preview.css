@@ -1,0 +1,695 @@
+/*
+  Local taste preview layer.
+  Remove the taste-preview class from <body> or this stylesheet link to return to the previous look.
+*/
+
+body.taste-preview {
+  --taste-panel: #0a0a0a;
+  --taste-panel-2: #111111;
+  --taste-line: rgba(255, 255, 255, 0.18);
+  --taste-line-dark: rgba(0, 0, 0, 0.72);
+  --taste-paper: #efeee8;
+  --taste-paper-line: rgba(0, 0, 0, 0.085);
+  --taste-yellow: var(--gold);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px) 0 0 / 44px 44px,
+    var(--light-bg);
+}
+
+body.taste-preview::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 19px);
+}
+
+.taste-preview .site-header {
+  border-bottom: 1px solid rgba(247, 191, 24, 0.46);
+  background:
+    linear-gradient(90deg, rgba(247, 191, 24, 0.08), transparent 30%, rgba(247, 191, 24, 0.035)),
+    #030303;
+}
+
+.taste-preview .header-top {
+  min-height: 90px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.taste-preview .header-inner {
+  grid-template-columns: 304px minmax(450px, 594px) 300px;
+  column-gap: 18px;
+  min-height: 90px;
+}
+
+.taste-preview .brand {
+  position: relative;
+  padding-inline-start: 18px;
+}
+
+.taste-preview .brand::before {
+  content: "FIELD SUPPLY";
+  display: block;
+  order: 3;
+  margin-top: 6px;
+  color: rgba(247, 191, 24, 0.86);
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+.taste-preview .brand::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--taste-yellow);
+}
+
+.taste-preview .brand-logo {
+  width: 210px;
+  filter: drop-shadow(0 0 10px rgba(247, 191, 24, 0.12));
+}
+
+.taste-preview .brand-subtitle {
+  margin-top: 1px;
+  color: #d8d8d8;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.taste-preview .search-form {
+  width: min(100%, 592px);
+  height: 52px;
+  transform: translateX(20px);
+  border: 1px solid rgba(247, 191, 24, 0.44);
+  border-radius: 0;
+  background: #0f0f0f;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
+}
+
+.taste-preview .search-form input {
+  color: #eeeeee;
+  background: #101010;
+  font-size: 14px;
+}
+
+.taste-preview .search-form input::placeholder {
+  color: #898989;
+}
+
+.taste-preview .search-form button {
+  border-right-color: rgba(247, 191, 24, 0.38);
+  color: var(--taste-yellow);
+  background: #060606;
+}
+
+.taste-preview .header-actions {
+  gap: 0;
+}
+
+.taste-preview .utility-link {
+  min-height: 50px;
+  padding-inline: 16px;
+}
+
+.taste-preview .utility-link + .utility-link {
+  border-right-color: rgba(247, 191, 24, 0.32);
+}
+
+.taste-preview .utility-icon {
+  width: 34px;
+  height: 34px;
+  stroke-width: 1.65;
+}
+
+.taste-preview .cart-badge {
+  border-radius: 0;
+  box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.62);
+}
+
+.taste-preview .main-nav {
+  height: 56px;
+  background:
+    linear-gradient(90deg, transparent, rgba(247, 191, 24, 0.05), transparent),
+    #030303;
+}
+
+.taste-preview .nav-list {
+  height: 56px;
+  gap: 14px;
+}
+
+.taste-preview .nav-list a {
+  height: 56px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.taste-preview .nav-list a::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  inset-inline-start: -9px;
+  width: 4px;
+  height: 4px;
+  background: rgba(247, 191, 24, 0.36);
+}
+
+.taste-preview .nav-list li:first-child a::before {
+  display: none;
+}
+
+.taste-preview .nav-list a.active::after {
+  bottom: 0;
+  width: 104px;
+  height: 2px;
+  box-shadow: 0 -7px 0 rgba(247, 191, 24, 0.1);
+}
+
+.taste-preview .hero-clean {
+  border-bottom: 1px solid rgba(247, 191, 24, 0.32);
+  background: #050505;
+}
+
+.taste-preview .hero-clean::after {
+  display: block;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 0 43%, rgba(0, 0, 0, 0.03) 56%, rgba(0, 0, 0, 0.28) 100%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 7px),
+    radial-gradient(ellipse at 80% 48%, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.42) 78%);
+}
+
+.taste-preview .hero-copy {
+  position: relative;
+  padding: 18px 22px 18px 0;
+  border-right: 2px solid var(--taste-yellow);
+}
+
+.taste-preview .hero-copy::before {
+  content: "[ T-WORK FIELD UNIFORM SYSTEM ]";
+  display: block;
+  margin-bottom: 13px;
+  color: var(--taste-yellow);
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+}
+
+.taste-preview .hero-copy::after {
+  content: "PRINT / EMBROIDERY / SAFETY / SUPPLY";
+  display: block;
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.taste-preview .hero-copy h1 {
+  font-size: clamp(50px, 4.25vw, 62px);
+  font-weight: 900;
+  line-height: 0.98;
+}
+
+.taste-preview .hero-copy h1 strong {
+  margin-top: 10px;
+}
+
+.taste-preview .hero-accent {
+  width: 128px;
+  height: 2px;
+  margin: 28px 0 20px;
+  background: var(--taste-yellow);
+  box-shadow: 0 0 0 1px rgba(247, 191, 24, 0.24);
+}
+
+.taste-preview .hero-kicker {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.taste-preview .hero-description {
+  max-width: 346px;
+  font-size: 17px;
+}
+
+.taste-preview .btn,
+.taste-preview .mobile-menu-toggle,
+.taste-preview .catalogue-anchor-nav a,
+.taste-preview .phone-capture-kicker,
+.taste-preview .phone-capture-trust span,
+.taste-preview .business-intro-points span,
+.taste-preview .home-product-code,
+.taste-preview .home-product-action {
+  border-radius: 0;
+}
+
+.taste-preview .btn {
+  min-height: 56px;
+  padding-inline: 25px;
+  letter-spacing: 0;
+  box-shadow: none;
+}
+
+.taste-preview .btn-primary {
+  color: #0d0d0d;
+  background:
+    linear-gradient(180deg, #ffcb20 0%, #f0b408 100%);
+  border-color: #ffcf29;
+  box-shadow: -6px 6px 0 rgba(0, 0, 0, 0.42);
+}
+
+.taste-preview .btn-outline {
+  color: #f5f5f5;
+  background: rgba(0, 0, 0, 0.48);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.taste-preview .btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.taste-preview .benefits {
+  background:
+    linear-gradient(90deg, rgba(247, 191, 24, 0.08), transparent 28%, rgba(247, 191, 24, 0.04)),
+    #0c0c0c;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(247, 191, 24, 0.24);
+}
+
+.taste-preview .benefits-inner {
+  min-height: 84px;
+}
+
+.taste-preview .benefit-item {
+  min-height: 84px;
+  gap: 12px;
+  padding-inline: 22px;
+}
+
+.taste-preview .benefit-item + .benefit-item::before {
+  height: 58px;
+  background: rgba(247, 191, 24, 0.25);
+}
+
+.taste-preview .benefit-icon {
+  width: 34px;
+  height: 34px;
+  stroke-width: 1.85;
+}
+
+.taste-preview .benefit-item h2 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.taste-preview .benefit-item p {
+  color: #bdbdbd;
+  font-size: 12.5px;
+}
+
+.taste-preview .phone-capture {
+  position: relative;
+  padding: 30px 0;
+  color: #eeeeee;
+  background:
+    linear-gradient(90deg, rgba(247, 191, 24, 0.12), transparent 28%),
+    linear-gradient(180deg, #101010 0%, #070707 100%);
+  border-top: 1px solid rgba(247, 191, 24, 0.25);
+  border-bottom: 1px solid rgba(247, 191, 24, 0.25);
+  box-shadow: none;
+}
+
+.taste-preview .phone-capture::before {
+  content: "[ WHATSAPP INQUIRY CHANNEL ]";
+  position: absolute;
+  top: 10px;
+  right: max(24px, calc((100vw - 1340px) / 2));
+  color: rgba(247, 191, 24, 0.78);
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.taste-preview .phone-capture-kicker {
+  color: #0b0b0b;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.taste-preview .phone-capture-copy h2 {
+  color: #ffffff;
+}
+
+.taste-preview .phone-capture-copy p {
+  color: #cfcfcf;
+}
+
+.taste-preview .phone-capture-trust span {
+  color: #f1f1f1;
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(247, 191, 24, 0.28);
+}
+
+.taste-preview .phone-capture-form {
+  border-radius: 0;
+  border-color: rgba(247, 191, 24, 0.56);
+  background: #0d0d0d;
+  box-shadow: -7px 7px 0 rgba(247, 191, 24, 0.16);
+}
+
+.taste-preview .phone-capture-form input {
+  color: #eeeeee;
+  background: #0d0d0d;
+}
+
+.taste-preview .phone-capture-form input::placeholder {
+  color: #7e7e7e;
+}
+
+.taste-preview .phone-capture-form button {
+  border-right-color: rgba(247, 191, 24, 0.42);
+  background: var(--taste-yellow);
+}
+
+.taste-preview .phone-capture-status {
+  color: #d6d6d6;
+}
+
+.taste-preview .truck-divider {
+  border-top-color: rgba(247, 191, 24, 0.28);
+  border-bottom-color: rgba(247, 191, 24, 0.22);
+}
+
+.taste-preview .truck-divider-shade {
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.24), transparent 26%, transparent 70%, rgba(0, 0, 0, 0.36)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.24));
+}
+
+.taste-preview .business-intro {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(247, 191, 24, 0.12), transparent 20rem),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px) 0 0 / 38px 38px,
+    linear-gradient(180deg, #151515 0%, #080808 100%);
+}
+
+.taste-preview .business-intro::before {
+  background:
+    linear-gradient(120deg, transparent 0 66%, rgba(247, 191, 24, 0.13) 66% 66.2%, transparent 66.2%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 11px);
+}
+
+.taste-preview .section-kicker {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.taste-preview .business-intro h2 {
+  max-width: 760px;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.taste-preview .business-intro-points span {
+  background: rgba(255, 255, 255, 0.026);
+  border-color: rgba(247, 191, 24, 0.44);
+  box-shadow: -4px 4px 0 rgba(0, 0, 0, 0.24);
+}
+
+.taste-preview .home-catalogue {
+  background:
+    linear-gradient(90deg, var(--taste-paper-line) 1px, transparent 1px) 0 0 / 44px 44px,
+    linear-gradient(0deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px) 0 0 / 44px 44px,
+    var(--taste-paper);
+}
+
+.taste-preview .home-catalogue-heading {
+  padding-bottom: 18px;
+  border-bottom: 2px solid #111111;
+}
+
+.taste-preview .home-catalogue-heading .section-kicker {
+  color: #111111;
+}
+
+.taste-preview .section-heading h2,
+.taste-preview .home-catalogue-section-heading h3 {
+  letter-spacing: 0;
+}
+
+.taste-preview .catalogue-anchor-nav {
+  top: 0;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #111111;
+  background:
+    linear-gradient(90deg, rgba(247, 191, 24, 0.12), transparent 36%),
+    rgba(9, 9, 9, 0.96);
+  backdrop-filter: blur(4px);
+}
+
+.taste-preview .catalogue-anchor-nav a {
+  min-height: 42px;
+  color: #f4f4f4;
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.22);
+  font-size: 14px;
+}
+
+.taste-preview .catalogue-anchor-nav a:hover {
+  color: #111111;
+  border-color: var(--taste-yellow);
+  background: var(--taste-yellow);
+}
+
+.taste-preview .home-catalogue-section {
+  padding-top: 6px;
+}
+
+.taste-preview .home-catalogue-section-heading {
+  padding: 12px 0;
+  border-top: 2px solid #111111;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.taste-preview .home-catalogue-section-heading span {
+  min-height: 30px;
+  border-radius: 0;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.taste-preview .home-products-grid {
+  gap: 20px;
+}
+
+.taste-preview .home-product-card-inner {
+  border: 1px solid #111111;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: -6px 6px 0 rgba(0, 0, 0, 0.11);
+}
+
+.taste-preview .home-product-card-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--taste-yellow);
+  z-index: 1;
+}
+
+.taste-preview .home-product-card-inner:hover {
+  transform: translateY(-2px) translateX(2px);
+  border-color: #111111;
+  box-shadow: -10px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.taste-preview .home-product-image {
+  height: 262px;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px) 0 0 / 22px 22px,
+    linear-gradient(180deg, #ffffff 0%, #f4f4ef 100%);
+  border-bottom: 2px solid #111111;
+}
+
+.taste-preview .home-product-code {
+  top: 4px;
+  right: 0;
+  min-width: 62px;
+  min-height: 32px;
+  color: #111111;
+  background: var(--taste-yellow);
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.taste-preview .home-product-category {
+  color: #8f6c00;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.taste-preview .home-product-name {
+  color: #0d0d0d;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.taste-preview .home-product-description {
+  color: #555555;
+}
+
+.taste-preview .home-product-action {
+  color: #111111;
+  background: #eeeeea;
+  border: 1px solid #111111;
+}
+
+.taste-preview .home-product-card-inner:hover .home-product-action,
+.taste-preview .home-product-action:focus-visible {
+  background: var(--taste-yellow);
+}
+
+@media (max-width: 1200px) {
+  .taste-preview .header-inner {
+    grid-template-columns: 270px minmax(360px, 1fr) 260px;
+  }
+}
+
+@media (max-width: 980px) {
+  body.taste-preview::before {
+    opacity: 0.09;
+  }
+
+  .taste-preview .header-inner {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    min-height: 0;
+  }
+
+  .taste-preview .brand {
+    padding-inline-start: 0;
+  }
+
+  .taste-preview .brand::after,
+  .taste-preview .brand::before,
+  .taste-preview .nav-list a::before,
+  .taste-preview .hero-copy::before,
+  .taste-preview .hero-copy::after {
+    display: none;
+  }
+
+  .taste-preview .search-form {
+    width: 100%;
+    max-width: 520px;
+    transform: none;
+  }
+
+  .taste-preview .nav-list {
+    height: auto;
+  }
+
+  .taste-preview .hero-copy {
+    padding: 0;
+    border-right: 0;
+  }
+
+  .taste-preview .benefits-inner {
+    min-height: 0;
+  }
+
+  .taste-preview .phone-capture::before {
+    right: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .taste-preview .brand-logo {
+    width: min(142px, 43vw);
+  }
+
+  .taste-preview .brand-subtitle {
+    font-size: 11px;
+  }
+
+  .taste-preview .search-form {
+    height: 46px;
+    background: #ffffff;
+  }
+
+  .taste-preview .search-form input {
+    color: #111111;
+    background: #ffffff;
+  }
+
+  .taste-preview .search-form button {
+    color: #111111;
+    background: var(--taste-yellow);
+  }
+
+  .taste-preview .mobile-hero-cta {
+    background:
+      linear-gradient(90deg, rgba(247, 191, 24, 0.08), transparent 42%),
+      #070707;
+  }
+
+  .taste-preview .mobile-hero-cta h2 {
+    font-weight: 400;
+  }
+
+  .taste-preview .mobile-hero-cta .btn {
+    box-shadow: none;
+  }
+
+  .taste-preview .phone-capture {
+    padding-top: 32px;
+  }
+
+  .taste-preview .phone-capture::before {
+    top: 8px;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+
+  .taste-preview .phone-capture-form {
+    box-shadow: -4px 4px 0 rgba(247, 191, 24, 0.16);
+  }
+
+  .taste-preview .catalogue-anchor-nav {
+    margin-inline: -12px;
+    border-inline: 0;
+  }
+
+  .taste-preview .home-product-card-inner {
+    box-shadow: -4px 4px 0 rgba(0, 0, 0, 0.11);
+  }
+
+  .taste-preview .home-product-image {
+    height: auto;
+  }
+}
