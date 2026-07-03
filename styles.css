@@ -1060,6 +1060,7 @@ input {
   display: flex;
   flex-direction: column;
   min-height: 414px;
+  height: 100%;
   overflow: hidden;
   border: 1px solid #dcdcdc;
   border-radius: 7px;

@@ -120,11 +120,10 @@
 
       if (sentToWhatsApp) {
         setPhoneStatus("המספר נשלח בוואטסאפ. נחזור אליכם בהקדם.", "success");
+        phoneInput.value = "";
       } else {
-        setPhoneStatus("המספר נקלט לבדיקה באתר. כדי שפניות יגיעו אליכם בפועל, צריך להוסיף כאן את מספר הוואטסאפ העסקי של T-WORK.", "warning");
+        setPhoneStatus("המספר נשמר בדפדפן הזה בלבד. כדי שפניות יגיעו אליכם בפועל, צריך להוסיף את מספר הוואטסאפ העסקי של T-WORK בקוד האתר.", "warning");
       }
-
-      phoneInput.value = "";
     });
   }
 

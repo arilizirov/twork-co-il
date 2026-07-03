@@ -22,11 +22,11 @@ body.taste-preview::before {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.14;
+  opacity: 0.045;
   mix-blend-mode: multiply;
   background:
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 5px),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 19px);
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 28px);
 }
 
 .taste-preview .site-header {
@@ -185,7 +185,7 @@ body.taste-preview::before {
   display: block;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0) 0 43%, rgba(0, 0, 0, 0.03) 56%, rgba(0, 0, 0, 0.28) 100%),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 11px),
     radial-gradient(ellipse at 80% 48%, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.42) 78%);
 }
 
@@ -335,7 +335,7 @@ body.taste-preview::before {
 }
 
 .taste-preview .phone-capture::before {
-  content: "[ WHATSAPP INQUIRY CHANNEL ]";
+  content: "[ פניות וואטסאפ ]";
   position: absolute;
   top: 10px;
   right: max(24px, calc((100vw - 1340px) / 2));
@@ -624,7 +624,7 @@ body.taste-preview::before {
   }
 
   .taste-preview .phone-capture::before {
-    right: 16px;
+    display: none;
   }
 }
 
@@ -667,13 +667,15 @@ body.taste-preview::before {
   }
 
   .taste-preview .phone-capture {
-    padding-top: 32px;
+    padding-top: 18px;
   }
 
   .taste-preview .phone-capture::before {
-    top: 8px;
-    font-size: 9px;
-    letter-spacing: 0.08em;
+    display: none;
+  }
+
+  .taste-preview .catalogue-anchor-nav a {
+    min-height: 44px;
   }
 
   .taste-preview .phone-capture-form {
