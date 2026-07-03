@@ -1,6 +1,6 @@
 (function () {
   // Add the business WhatsApp number in international format, for example: "972501234567".
-  const businessWhatsAppNumber = "";
+  const businessWhatsAppNumber = "972544338439";
   const phoneForm = document.querySelector("[data-whatsapp-form]");
   const phoneInput = document.querySelector("#inquiry-phone");
   const phoneStatus = document.querySelector("[data-phone-status]");

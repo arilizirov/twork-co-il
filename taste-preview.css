@@ -406,16 +406,11 @@ body.taste-preview::before {
 }
 
 .taste-preview .business-intro {
-  background:
-    radial-gradient(circle at 10% 0%, rgba(247, 191, 24, 0.12), transparent 20rem),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px) 0 0 / 38px 38px,
-    linear-gradient(180deg, #151515 0%, #080808 100%);
+  background: #050505;
 }
 
 .taste-preview .business-intro::before {
-  background:
-    linear-gradient(120deg, transparent 0 66%, rgba(247, 191, 24, 0.13) 66% 66.2%, transparent 66.2%),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 11px);
+  display: none;
 }
 
 .taste-preview .section-kicker {
@@ -432,9 +427,9 @@ body.taste-preview::before {
 }
 
 .taste-preview .business-intro-points span {
-  background: rgba(255, 255, 255, 0.026);
-  border-color: rgba(247, 191, 24, 0.44);
-  box-shadow: -4px 4px 0 rgba(0, 0, 0, 0.24);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .taste-preview .home-catalogue {
